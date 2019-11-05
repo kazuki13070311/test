@@ -1,0 +1,146 @@
+Script started on Thu 24 Oct 2019 11:04:59 PM JST
+[01;32mCloud9User[00m:[01;34m~/environment/taskleaf[00m (master) $ rails  s
+=> Booting Puma
+=> Rails 5.2.3 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.12.1 (ruby 2.6.3-p62), codename: Llamas in Pajamas
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:8080
+Use Ctrl-C to stop
+Started GET "/" for 182.169.64.243 at 2019-10-24 23:05:47 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+Redirected to https://07614f01a60c461e805fb2d78c699ae3.vfs.cloud9.ap-southeast-1.amazonaws.com/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 182.169.64.243 at 2019-10-24 23:05:47 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.slim within layouts/application
+  Rendered sessions/new.html.slim within layouts/application (12.2ms)
+Completed 200 OK in 356ms (Views: 355.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 182.169.64.243 at 2019-10-24 23:05:50 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1lNxXQofX7MHPCxZ4uHsqbo167l7qy4MUiUUYW1t3jVdbofVHwuEpsx/LMQWQIgEz8+8xgjqm1Re+/6gpIWwlA==", "session"=>{"email"=>"kazuki13070311@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ログインする"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kazuki13070311@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to https://07614f01a60c461e805fb2d78c699ae3.vfs.cloud9.ap-southeast-1.amazonaws.com/
+Completed 302 Found in 316ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 182.169.64.243 at 2019-10-24 23:05:50 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/index.html.slim within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ? ORDER BY "created_st" DESC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.slim:12
+  Rendered tasks/index.html.slim within layouts/application (148.4ms)
+Completed 200 OK in 182ms (Views: 172.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tasks/new" for 182.169.64.243 at 2019-10-24 23:05:56 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering tasks/new.html.slim within layouts/application
+  Rendered tasks/_form.html.slim (4.7ms)
+  Rendered tasks/new.html.slim within layouts/application (8.0ms)
+Completed 200 OK in 86ms (Views: 84.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/tasks" for 182.169.64.243 at 2019-10-24 23:06:10 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EDzpdHBM9+uWb1Gqou9TKxnNKnihDA/2OkvUZLJiesQ0qJLKTzN3R/ci2nI9PiNCc6CPv2ES89PPRH0tj7AaSg==", "task"=>{"name"=>"テストテストテストテストテストテスト", "description"=>"テストテストテストテストテストテストテストテストテストテスト"}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "テストテストテストテストテストテスト"], ["description", "テストテストテストテストテストテストテストテストテストテスト"], ["created_at", "2019-10-24 14:06:10.607556"], ["updated_at", "2019-10-24 14:06:10.607556"], ["user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:34
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34
+task: {"id"=>9, "name"=>"テストテストテストテストテストテスト", "description"=>"テストテストテストテストテストテストテストテストテストテスト", "created_at"=>Thu, 24 Oct 2019 23:06:10 JST +09:00, "updated_at"=>Thu, 24 Oct 2019 23:06:10 JST +09:00, "user_id"=>1}
+Redirected to https://07614f01a60c461e805fb2d78c699ae3.vfs.cloud9.ap-southeast-1.amazonaws.com/tasks/9
+Completed 302 Found in 23ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/tasks/9" for 182.169.64.243 at 2019-10-24 23:06:10 +0900
+Cannot render console from 182.169.64.243! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ? AND "tasks"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:49
+  Rendering tasks/show.html.slim within layouts/application
+  Rendered tasks/show.html.slim within layouts/application (17.4ms)
+Completed 200 OK in 57ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2019-10-24 23:07:25 +0900 ===
+- Goodbye!
+Exiting
+[01;32mCloud9User[00m:[01;34m~/environment/taskleaf[00m (master) $ [H[J[01;32mCloud9User[00m:[01;34m~/environment/taskleaf[00m (master) $ 
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:27 ...
+
+The system is going down for halt in 30 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:42 ...
+
+The system is going down for halt in 15 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:48 ...
+
+The system is going down for halt in 9 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:49 ...
+
+The system is going down for halt in 8 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:50 ...
+
+The system is going down for halt in 7 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:51 ...
+
+The system is going down for halt in 6 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:52 ...
+
+The system is going down for halt in 5 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:53 ...
+
+The system is going down for halt in 4 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:54 ...
+
+The system is going down for halt in 3 minutes!
+
+Broadcast message from root@ip-172-31-19-88
+	(unknown) at 23:55 ...
+
+The syst
