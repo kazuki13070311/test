@@ -41,11 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails','~>4.11'
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg','0.20.0'
+  gem 'sqlite3','1.3.13'
 end
 
 group :development do
@@ -58,6 +54,10 @@ group :development do
   # https://github.com/BetterErrors/better_errorsから追加した
   gem "better_errors"
   gem "binding_of_caller"
+end
+
+group :production do
+  gem 'pg','0.20.0'
 end
 
 group :test do
